@@ -71,7 +71,7 @@ char message[16];
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) { return OLED_ROTATION_270; }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
   if (!is_bootanim_done) {
     bootanim_render(0, 1);
   } else {
@@ -81,6 +81,8 @@ void oled_task_user(void) {
 
     pet_render(0, 13);
   }
+
+  return true;
 }
 
 void matrix_init_user(void) {
